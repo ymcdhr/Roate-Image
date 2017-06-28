@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
     <meta charset="UTF-8">
     <title></title>
 
@@ -8,21 +9,14 @@
             /*width: 400px;*/
             /*height: 200px;*/
         }
-
-
     </style>
-
 </head>
 
 <body>
 <input type="file" onchange="change()" class="photoUpLoad" multiple="" accept="image/*">
 <img id="img" src="">
 
-<canvas id="can">
-
-
-</canvas>
-
+<canvas id="can"></canvas>
 
 
 
@@ -52,8 +46,7 @@ function change(){
 
     //旋转图片
     rotateImage(url, 270);
-
-
+    
 
     //该插件可以获取图片的原始信息
     //如需使用，需要引入：https://github.com/think2011/localResizeIMG/blob/master/dist/lrz.bundle.js
@@ -151,12 +144,12 @@ function rotateImage(img,angle) {
             ctx.restore();//恢复状态
         }
 
+        
 
-
-
+        //将canvas转存为base64
         var imageBase64 = canvas.toDataURL("image/png");
 
-
+        //将base64转换为blob对象
         var blobImg = convertBase64UrlToBlob(imageBase64);
 
         console.log(blobImg);
